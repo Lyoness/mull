@@ -3,8 +3,15 @@ language: cpp
 compiler:
 - clang
 
-os:
-- osx
+matrix:
+  include:
+  - os: osx
+    osx_image: xcode9.3beta
+  - os: osx
+    osx_image: xcode9.3beta-lite
+  - os: osx
+    osx_image: xcode9.3beta-moar
+
 
 before_install:
 - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then brew update; fi
